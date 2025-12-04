@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Démonstration interactive du chargement optionnel des médias et du contrôle utilisateur.">
+  <title>Expérimentation – TraceLess Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal / Skip to main content</a>
+  
+  <header>
+    <h1>TraceLess Web</h1>
+    <p>Le web qui trace, sans traces</p>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="eco-conception.html">Éco-conception</a></li>
+        <li><a href="experimentation.html" aria-current="page">Expérimentation</a></li>
+        <li><a href="code.html">Code</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h2>Expérimentation : médias optionnels</h2>
+    
+    <section>
+      <p>
+        Cette page démontre le principe du <strong>chargement explicite des médias</strong>. 
+        Les images ci-dessous ne sont pas chargées automatiquement. Vous décidez si vous 
+        voulez les voir.
+      </p>
+      <p>
+        <em>This page demonstrates explicit media loading. Images below are not loaded 
+        automatically. You decide whether to view them.</em>
+      </p>
+    </section>
+
+    <aside class="info-box" aria-label="Indicateur de poids">
+      <p>
+        <strong>Poids estimé de la page / Estimated page weight:</strong> 
+        <span id="weight-indicator">18 KB</span>
+      </p>
+      <p><small>Ce nombre augmente quand vous chargez des images.</small></p>
+    </aside>
+
+    <section>
+      <h3>Image 1 : Icône éco</h3>
+      <div class="media-placeholder">
+        <p>Image non chargée / Image not loaded (~4 KB)</p>
+        <button id="load-eco" type="button" data-alt="Icône représentant l'écologie numérique">
+          Afficher l'image / Show image (4 KB)
+        </button>
+      </div>
+      <p>
+        <strong>Description textuelle :</strong> Une icône simple représentant une plante 
+        numérique, symbole de l'éco-conception web.
+      </p>
+    </section>
+
+    <section>
+      <h3>Image 2 : Forêt minimaliste</h3>
+      <div class="media-placeholder">
+        <p>Image non chargée / Image not loaded (~6 KB)</p>
+        <button id="load-forest" type="button" data-alt="Illustration minimaliste d'une forêt">
+          Afficher l'image / Show image (6 KB)
+        </button>
+      </div>
+      <p>
+        <strong>Description textuelle :</strong> Une forêt stylisée en SVG, utilisant 
+        uniquement des formes géométriques vertes sur fond sombre.
+      </p>
+    </section>
+
+    <section>
+      <h3>Image 3 : Terminal</h3>
+      <div class="media-placeholder">
+        <p>Image non chargée / Image not loaded (~3 KB)</p>
+        <button id="load-terminal" type="button" data-alt="Capture d'écran d'un terminal affichant les statistiques TraceLess">
+          Afficher l'image / Show image (3 KB)
+        </button>
+      </div>
+      <p>
+        <strong>Description textuelle :</strong> Un terminal fictif affichant les statistiques 
+        de TraceLess Web : poids minimal, une seule requête, zéro tracker.
+      </p>
+    </section>
+
+    <section>
+      <h2>Pourquoi ce modèle ?</h2>
+      <p>
+        Sur le web moderne, les images se chargent automatiquement, souvent avant même 
+        que l'utilisateur ne scrolle jusqu'à elles. Cela représente :
+      </p>
+      <ul>
+        <li>Des données consommées inutilement</li>
+        <li>De la bande passante gaspillée</li>
+        <li>De l'énergie dépensée (serveurs, réseau, appareil)</li>
+        <li>Du temps d'attention capturé sans consentement</li>
+      </ul>
+      <p>
+        En rendant le chargement explicite, nous redonnons le contrôle à l'utilisateur. 
+        Le texte suffit souvent à comprendre le contenu.
+      </p>
+    </section>
+
+    <section>
+      <h2>Sans JavaScript</h2>
+      <p>
+        Si JavaScript est désactivé dans votre navigateur, les boutons ci-dessus ne 
+        fonctionneront pas. Mais ce n'est pas grave : les descriptions textuelles 
+        vous donnent toutes les informations essentielles.
+      </p>
+      <p>
+        <strong>Le contenu reste accessible sans images et sans JavaScript.</strong>
+      </p>
+      <p>
+        <em>EN: If JavaScript is disabled, buttons won't work. But text descriptions 
+        provide all essential information. Content remains accessible without images and JS.</em>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>TraceLess Web – Nuit de l'Info 2024</p>
+    <p>Aucune donnée collectée. Aucun cookie.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

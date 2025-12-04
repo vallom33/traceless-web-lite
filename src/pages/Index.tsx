@@ -1,11 +1,20 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    // Redirect to the static TraceLess Web site
+    window.location.href = "/traceless/index.html";
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
+    <div className="flex min-h-screen items-center justify-center bg-[#0a1a0a]">
       <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+        <p className="text-[#e8e4d9]">Redirection vers TraceLess Web...</p>
+        <p className="mt-2">
+          <a href="/traceless/index.html" className="text-[#4ade80] underline">
+            Cliquer ici si la redirection ne fonctionne pas
+          </a>
+        </p>
       </div>
     </div>
   );
