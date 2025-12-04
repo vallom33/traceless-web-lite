@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Architecture et choix techniques de TraceLess Web : code source, stratégie CSS/JS, éco-conception.">
+  <title>Code – TraceLess Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal / Skip to main content</a>
+  
+  <header>
+    <h1>TraceLess Web</h1>
+    <p>Le web qui trace, sans traces</p>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="eco-conception.html">Éco-conception</a></li>
+        <li><a href="experimentation.html">Expérimentation</a></li>
+        <li><a href="code.html" aria-current="page">Code</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h2>Architecture et choix techniques</h2>
+    
+    <section>
+      <p>
+        TraceLess Web est conçu comme une démonstration concrète des principes d'éco-conception. 
+        Voici comment nous avons implémenté ces principes.
+      </p>
+    </section>
+
+    <article>
+      <h3>Pas de framework</h3>
+      <p>
+        Ce site n'utilise aucun framework JavaScript (React, Vue, Angular, etc.). 
+        Tout est écrit en HTML, CSS et JavaScript natif.
+      </p>
+      <p><strong>Raisons :</strong></p>
+      <ul>
+        <li>React + ReactDOM = ~140 Ko (avant votre code)</li>
+        <li>Ce site entier = ~20 Ko (HTML + CSS + JS)</li>
+        <li>Pas de build complexe, pas de dépendances à maintenir</li>
+        <li>Code source lisible directement dans le navigateur</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Structure des fichiers</h3>
+      <pre><code>/traceless
+├── index.html         (~4 KB)
+├── eco-conception.html (~5 KB)
+├── experimentation.html (~4 KB)
+├── code.html          (~5 KB)
+├── styles.css         (~3 KB)
+└── main.js            (~2 KB, optionnel)</code></pre>
+      <p>
+        Total : moins de 25 Ko pour l'ensemble du site. Une seule image de héros 
+        moderne pèse souvent plus.
+      </p>
+    </article>
+
+    <article>
+      <h3>Stratégie CSS</h3>
+      <p>Notre CSS suit ces règles :</p>
+      <ul>
+        <li><strong>Polices système</strong> – <code>system-ui, -apple-system, sans-serif</code></li>
+        <li><strong>Variables CSS</strong> – Couleurs centralisées, faciles à modifier</li>
+        <li><strong>Mobile-first</strong> – Mise en page fluide par défaut</li>
+        <li><strong>Pas d'animations</strong> – Sauf transitions subtiles au hover</li>
+        <li><strong>Contrastes élevés</strong> – WCAG AA minimum</li>
+      </ul>
+      <pre><code>/* Extrait de styles.css */
+:root {
+  --bg: #0a1a0a;
+  --text: #e8e4d9;
+  --accent: #4ade80;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 65ch;
+  margin: 0 auto;
+}</code></pre>
+    </article>
+
+    <article>
+      <h3>Stratégie JavaScript</h3>
+      <p>
+        JavaScript est utilisé uniquement sur la page d'expérimentation, pour le 
+        chargement optionnel des images. Il est :
+      </p>
+      <ul>
+        <li><strong>Optionnel</strong> – Le site fonctionne sans JS</li>
+        <li><strong>Minimal</strong> – Moins de 2 Ko non minifié</li>
+        <li><strong>Vanilla</strong> – Aucune dépendance externe</li>
+        <li><strong>IIFE</strong> – Pas de pollution du scope global</li>
+      </ul>
+      <pre><code>// Extrait de main.js
+(function() {
+  'use strict';
+  
+  function loadImage(buttonId, imgId, src) {
+    var button = document.getElementById(buttonId);
+    button.addEventListener('click', function() {
+      // Créer et afficher l'image
+    });
+  }
+  
+  // Initialisation au chargement du DOM
+})();</code></pre>
+    </article>
+
+    <article>
+      <h3>Accessibilité</h3>
+      <p>Mesures d'accessibilité implémentées :</p>
+      <ul>
+        <li>Lien "Skip to content" sur chaque page</li>
+        <li>Navigation au clavier complète</li>
+        <li>Focus visible (outline) sur tous les éléments interactifs</li>
+        <li>HTML sémantique (header, nav, main, article, footer)</li>
+        <li>Attributs ARIA quand nécessaire</li>
+        <li>Textes alternatifs pour toutes les images</li>
+        <li>Contraste minimum 4.5:1</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Compatible navigateurs texte</h3>
+      <p>
+        Ce site a été testé avec <code>w3m</code> et <code>lynx</code>. 
+        La navigation et le contenu sont entièrement accessibles en mode texte.
+      </p>
+      <pre><code>$ w3m -dump traceless/index.html
+
+TraceLess Web
+Le web qui trace, sans traces
+
+[Accueil] [Éco-conception] [Expérimentation] [Code]
+
+## Bienvenue / Welcome
+TraceLess Web est une expérience web minimaliste...</code></pre>
+    </article>
+
+    <article>
+      <h3>Ce que nous n'avons PAS</h3>
+      <ul>
+        <li>❌ Google Analytics ou autre tracker</li>
+        <li>❌ Cookies (aucun)</li>
+        <li>❌ Polices web (Google Fonts, etc.)</li>
+        <li>❌ CDN tiers pour les bibliothèques</li>
+        <li>❌ Images en autoload</li>
+        <li>❌ Vidéos en autoplay</li>
+        <li>❌ Popups ou modales intrusives</li>
+        <li>❌ JavaScript obligatoire</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Code source</h3>
+      <p>
+        Le code source complet est disponible et libre d'utilisation :
+      </p>
+      <p>
+        <a href="https://github.com/">Voir sur GitHub</a> (lien à mettre à jour)
+      </p>
+      <p>
+        N'hésitez pas à vous inspirer de cette approche pour vos propres projets. 
+        Le web sobre est un choix collectif.
+      </p>
+    </article>
+
+    <aside class="info-box" aria-label="Informations sur cette page">
+      <dl>
+        <dt>Poids de cette page :</dt>
+        <dd>~20 KB</dd>
+        <dt>Requêtes HTTP :</dt>
+        <dd>2</dd>
+        <dt>JavaScript :</dt>
+        <dd>0 KB (non requis)</dd>
+      </dl>
+    </aside>
+  </main>
+
+  <footer>
+    <p>TraceLess Web – Nuit de l'Info 2024</p>
+    <p>Aucune donnée collectée. Aucun cookie.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Principes d'éco-conception web : réduire l'impact environnemental et respecter les utilisateurs.">
+  <title>Éco-conception – TraceLess Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal / Skip to main content</a>
+  
+  <header>
+    <h1>TraceLess Web</h1>
+    <p>Le web qui trace, sans traces</p>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="eco-conception.html" aria-current="page">Éco-conception</a></li>
+        <li><a href="experimentation.html">Expérimentation</a></li>
+        <li><a href="code.html">Code</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <h2>Principes d'éco-conception web</h2>
+    <p>
+      L'éco-conception web vise à réduire l'impact environnemental des sites et applications 
+      tout en améliorant l'expérience utilisateur. Voici les principes clés :
+    </p>
+
+    <article>
+      <h3>1. Réduire le poids des médias</h3>
+      <p>
+        Les images, vidéos et polices représentent souvent 80% du poids d'une page. 
+        Pour réduire leur impact :
+      </p>
+      <ul>
+        <li>Compresser les images (WebP, AVIF, SVG)</li>
+        <li>Utiliser des dimensions adaptées (pas de 4K pour une miniature)</li>
+        <li>Charger les médias uniquement à la demande (lazy loading explicite)</li>
+        <li>Éviter les vidéos en autoplay</li>
+        <li>Préférer le texte aux images décoratives</li>
+      </ul>
+      <p><em>EN: Compress images, use appropriate dimensions, load media only on demand.</em></p>
+    </article>
+
+    <article>
+      <h3>2. Prioriser le texte</h3>
+      <p>
+        Le texte est le format le plus léger et le plus accessible. Un paragraphe 
+        de 1000 caractères pèse environ 1 Ko. La même information en image peut peser 100 Ko.
+      </p>
+      <ul>
+        <li>Utiliser du texte pour le contenu principal</li>
+        <li>Réserver les images pour l'information qui ne peut pas être textuelle</li>
+        <li>Fournir des alternatives textuelles (attribut alt)</li>
+        <li>Structurer avec du HTML sémantique</li>
+      </ul>
+      <p><em>EN: Text is the lightest and most accessible format. Use semantic HTML.</em></p>
+    </article>
+
+    <article>
+      <h3>3. Limiter JavaScript et dépendances</h3>
+      <p>
+        JavaScript moderne peut facilement ajouter des centaines de Ko à une page. 
+        Chaque bibliothèque importée a un coût :
+      </p>
+      <ul>
+        <li>React + ReactDOM : ~140 Ko (gzippé)</li>
+        <li>jQuery : ~30 Ko (gzippé)</li>
+        <li>Moment.js : ~70 Ko (gzippé)</li>
+        <li>Ce site : ~1 Ko de JS (optionnel)</li>
+      </ul>
+      <p>
+        Préférez le JavaScript natif, ou mieux : pas de JavaScript du tout quand c'est possible. 
+        HTML et CSS peuvent faire beaucoup.
+      </p>
+      <p><em>EN: Avoid heavy frameworks. Native JS or no JS is often sufficient.</em></p>
+    </article>
+
+    <article>
+      <h3>4. Limiter pistage et cookies</h3>
+      <p>
+        Les scripts de pistage (Google Analytics, Facebook Pixel, etc.) ajoutent :
+      </p>
+      <ul>
+        <li>Du poids supplémentaire (50-200 Ko par tracker)</li>
+        <li>Des requêtes HTTP additionnelles</li>
+        <li>Une atteinte à la vie privée des utilisateurs</li>
+        <li>Une dette technique (maintenance des consentements)</li>
+      </ul>
+      <p>
+        Alternative : logs serveur anonymisés, ou simplement aucune mesure d'audience. 
+        Avez-vous vraiment besoin de savoir combien de visiteurs vous avez ?
+      </p>
+      <p><em>EN: Trackers add weight and privacy concerns. Consider not tracking at all.</em></p>
+    </article>
+
+    <article>
+      <h3>5. Concevoir pour tous les utilisateurs</h3>
+      <p>
+        Un site éco-conçu est naturellement plus accessible :
+      </p>
+      <ul>
+        <li>Connexions lentes (3G, zones rurales)</li>
+        <li>Appareils anciens ou peu puissants</li>
+        <li>Utilisateurs de lecteurs d'écran</li>
+        <li>Navigation au clavier</li>
+        <li>Navigateurs texte (w3m, lynx, links)</li>
+      </ul>
+      <p>
+        <strong>Le web sobre est un web inclusif.</strong>
+      </p>
+      <p><em>EN: A low-weight web is an inclusive web. Design for all users.</em></p>
+    </article>
+
+    <article>
+      <h3>6. Références et ressources</h3>
+      <ul>
+        <li><a href="https://www.greenit.fr/">GreenIT.fr</a> – Communauté française</li>
+        <li><a href="https://www.websitecarbon.com/">Website Carbon Calculator</a></li>
+        <li><a href="https://gemini.circumlunar.space/">Protocole Gemini</a></li>
+        <li><a href="https://www.w3.org/WAI/">W3C Web Accessibility Initiative</a></li>
+      </ul>
+    </article>
+
+    <aside class="info-box" aria-label="Informations sur cette page">
+      <dl>
+        <dt>Poids de cette page :</dt>
+        <dd>~18 KB</dd>
+        <dt>Requêtes HTTP :</dt>
+        <dd>2</dd>
+        <dt>JavaScript :</dt>
+        <dd>0 KB</dd>
+      </dl>
+    </aside>
+  </main>
+
+  <footer>
+    <p>TraceLess Web – Nuit de l'Info 2024</p>
+    <p>Aucune donnée collectée. Aucun cookie.</p>
+  </footer>
+</body>
+</html>
