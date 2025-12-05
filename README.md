@@ -16,8 +16,8 @@ This project was created for the Nuit de l’Info challenge **“Le web qui trac
 ---
 
 ## 🚀 Live Demo  
-👉 **Demo:** `<ADD YOUR DEPLOY URL HERE>`  
-👉 **Source Code:** `<ADD YOUR GITHUB URL HERE>`
+👉 **Demo:** https://traceless-web-lite.vercel.app/
+👉 **Source Code:** https://github.com/vallom33/traceless-web-lite
 
 ---
 
